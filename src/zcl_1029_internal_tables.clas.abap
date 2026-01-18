@@ -1,0 +1,128 @@
+CLASS zcl_1029_internal_tables DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zcl_1029_internal_tables IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+* Declarations
+**********************************************************************
+
+    " Internal tables
+    DATA numbers TYPE TABLE OF i.
+
+    "Table type (local)
+    TYPES tt_strings TYPE TABLE OF string.
+    DATA texts1      TYPE tt_strings.
+
+    " Table type (global type)
+    DATA texts2 TYPE string_table.
+
+    " work areas
+    DATA number TYPE i VALUE 1234.
+    DATA text TYPE string.
+
+* Example 1: APPEND
+**********************************************************************
+
+    APPEND 4711       TO numbers.
+    APPEND number     TO numbers.
+    APPEND 2 * number TO numbers.
+
+    out->write(  `-----------------` ).
+    out->write(  `Example 1: APPEND` ).
+    out->write(  `-----------------` ).
+
+    out->write( numbers ).
+
+* Example 2: CLEAR
+**********************************************************************
+
+    CLEAR numbers.
+
+    out->write(  `----------------` ).
+    out->write(  `Example 2: CLEAR` ).
+    out->write(  `----------------` ).
+
+    out->write( numbers ).
+
+* Example 3: table expression
+**********************************************************************
+    APPEND 4711       TO numbers.
+    APPEND number     TO numbers.
+    APPEND 2 * number TO numbers.
+
+    out->write(  `---------------------------` ).
+    out->write(  `Example 3: Table Expression` ).
+    out->write(  `---------------------------` ).
+
+    number = numbers[ 2 ] .
+
+    out->write( |Content of row 2: { number }|    ).
+    "Direct use of expression in string template
+    out->write( |Content of row 1: { numbers[ 1 ]  }| ).
+
+* Example 4: LOOP ... ENDLOOP
+**********************************************************************
+    out->write(  `---------------------------` ).
+    out->write(  `Example 4: LOOP ... ENDLOOP` ).
+    out->write(  `---------------------------` ).
+
+    LOOP AT numbers INTO number.
+
+      out->write( |Row: { sy-tabix } Content { number }| ).
+
+    ENDLOOP.
+
+* Example 5: Inline declaration in LOOP ... ENDLOOP
+**********************************************************************
+    out->write(  `-----------------------------` ).
+    out->write(  `Example 5: Inline Declaration` ).
+    out->write(  `-----------------------------` ).
+
+    LOOP AT numbers INTO DATA(number_inline).
+      out->write( |Row: { sy-tabix } Content { number_inline }| ).
+    ENDLOOP.
+
+  ENDMETHOD.
+ENDCLASS.
+*SALIDA
+*-----------------
+*Example 1: APPEND
+*-----------------
+*4711
+*1234
+*2468
+*----------------
+*Example 2: CLEAR
+*----------------
+*---------------------------
+*Example 3: Table Expression
+*---------------------------
+*Content of row 2: 1234
+*Content of row 1: 4711
+*---------------------------
+*Example 4: LOOP ... ENDLOOP
+*---------------------------
+*Row: 1 Content 4711
+*Row: 2 Content 1234
+*Row: 3 Content 2468
+*-----------------------------
+*Example 5: Inline Declaration
+*-----------------------------
+*Row: 1 Content 4711
+*Row: 2 Content 1234
+*Row: 3 Content 2468
+
