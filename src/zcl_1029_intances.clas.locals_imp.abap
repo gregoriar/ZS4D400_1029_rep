@@ -4,15 +4,28 @@
 CLASS lcl_connection DEFINITION.
 
   PUBLIC SECTION.
+* Attributes
+***************************************************************************
     DATA: carrier_id    TYPE /dmo/carrier_id,
           connection_id TYPE /dmo/connection_id.
 
     CLASS-DATA conn_counter TYPE i.
+
+
+* Methods
+***************************************************************************
+
+
+
+
+
   PROTECTED SECTION.
   PRIVATE SECTION.
 
 ENDCLASS.
 
 CLASS lcl_connection IMPLEMENTATION.
+
+
 
 ENDCLASS.
