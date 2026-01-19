@@ -17,7 +17,7 @@ CLASS zcl_1029_exception_handling_2 IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-    CONSTANTS c_carrier_id TYPE /dmo/carrier_id       VALUE 'LH'.
+    CONSTANTS c_carrier_id TYPE /dmo/carrier_id       VALUE 'AA'.
     CONSTANTS c_connection_id TYPE /dmo/connection_id VALUE '0400'.
 
     DATA connection   TYPE REF TO lcl_connection.
