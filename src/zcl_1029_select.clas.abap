@@ -1,4 +1,4 @@
-CLASS zcl_1029_local_class DEFINITION
+CLASS zcl_1029_select DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_local_class IMPLEMENTATION.
+CLASS ZCL_1029_SELECT IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -43,10 +43,11 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
     ENDTRY.
 
 *Second Instance
+*Connection = 0000 or '0000' for raise EXCEPTION in Constructor Method.
     TRY.
         connection = NEW #(
                             i_carrier_id    = 'AA'
-                            i_connection_id = '0017'
+                            i_connection_id = '0000'
                           ).
         APPEND connection TO connections.
 
@@ -78,13 +79,17 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 *SALIDA
+*Method call failed
 *------------------------------
 *Carrier:     LH
 *Connection:  0400
-*------------------------------
-*Carrier:     AA
-*Connection:  0017
+*Departure:   FRA
+*Destination: JFK
 *------------------------------
 *Carrier:     SQ
 *Connection:  0001
-*3 connectios have been created
+*Departure:   SFO
+*Destination: SIN
+*2 connectios have been created
+
+

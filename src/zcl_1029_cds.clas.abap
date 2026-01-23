@@ -1,4 +1,4 @@
-CLASS zcl_1029_local_class DEFINITION
+CLASS zcl_1029_cds DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_local_class IMPLEMENTATION.
+CLASS zcl_1029_cds IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -40,18 +40,21 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+        out->write( 'Instance 1 failed' ).
     ENDTRY.
 
 *Second Instance
     TRY.
         connection = NEW #(
                             i_carrier_id    = 'AA'
-                            i_connection_id = '0017'
+                            i_connection_id = '0000'  "For raise exception, I must test later
+*                            i_connection_id = '0017'  " Valid value
                           ).
         APPEND connection TO connections.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+        out->write( 'Instance 2 failed' ).
     ENDTRY.
 
 * Third instance
@@ -65,6 +68,7 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
 
       CATCH cx_abap_invalid_value.
         out->write( `Method call failed` ).
+        out->write( 'Instance 3 failed' ).
     ENDTRY.
 
 * Output
@@ -73,18 +77,24 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
       out->write( connection->get_output( ) ).
     ENDLOOP.
 
-   out->write( |{ lines( connections ) } connectios have been created| ).
+    out->write( |{ lines( connections ) } connectios have been created| ).
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
+*SALIDA CON LECTURA A CDS /DMO/I_Connection
+*Method call failed
+*Instance 2 failed
 *------------------------------
 *Carrier:     LH
 *Connection:  0400
-*------------------------------
-*Carrier:     AA
-*Connection:  0017
+*Departure:   FRA
+*Destination: JFK
+*Carrier:     LH Deutsche Lufthansa AG
 *------------------------------
 *Carrier:     SQ
 *Connection:  0001
-*3 connectios have been created
+*Departure:   SFO
+*Destination: SIN
+*Carrier:     SQ Singapore Airlines Limited
+*2 connectios have been created
+

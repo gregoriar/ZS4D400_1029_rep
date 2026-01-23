@@ -5,8 +5,11 @@ CLASS lcl_connection DEFINITION .
 
   PUBLIC SECTION.
 
-    DATA: carrier_id    TYPE /dmo/carrier_id,
-          connection_id TYPE /dmo/connection_id.
+    DATA: carrier_id      TYPE /dmo/carrier_id,
+          connection_id   TYPE /dmo/connection_id,
+
+          airport_from_id TYPE /dmo/airport_from_id,
+          airport_to_id   TYPE /dmo/airport_to_id.
 
     METHODS constructor
       IMPORTING
@@ -40,15 +43,29 @@ CLASS lcl_connection IMPLEMENTATION.
 
       RAISE EXCEPTION TYPE cx_abap_invalid_value.
     ENDIF.
+
+    SELECT SINGLE
+          FROM /dmo/connection
+        FIELDS airport_from_id, airport_to_id
+         WHERE carrier_id    = @i_carrier_id
+           AND connection_id = @i_connection_id
+          INTO ( @airport_from_id, @airport_to_id ).
+
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE cx_abap_invalid_value.
+    ENDIF.
     me->carrier_id = i_carrier_id.
     me->connection_id = i_connection_id.
     conn_counter += 1.
+
   ENDMETHOD.
 
   METHOD get_output.
-    APPEND |------------------------------| TO r_output.
-    APPEND |Carrier:     { carrier_id    }| TO r_output.
-    APPEND |Connection:  { connection_id }| TO r_output.
+    APPEND |------------------------------|   TO r_output.
+    APPEND |Carrier:     { carrier_id    }|   TO r_output.
+    APPEND |Connection:  { connection_id }|   TO r_output.
+    APPEND |Departure:   { airport_from_id }| TO r_output.
+    APPEND |Destination: { airport_to_id   }| TO r_output.
   ENDMETHOD.
 
 ENDCLASS.
