@@ -1,4 +1,4 @@
-CLASS zcl_1029_cds DEFINITION
+CLASS zcl_1029_structure_excersice DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_cds IMPLEMENTATION.
+CLASS zcl_1029_structure_excersice IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -76,28 +76,22 @@ CLASS zcl_1029_cds IMPLEMENTATION.
     LOOP AT connections INTO connection.
       out->write( connection->get_output( ) ).
     ENDLOOP.
-    out->write( |CDS View in Constructor Method for validate Instance Creation| ).
-   out->write(  |and public intance and static attribute | ).
+    out->write( |Structure use as  private intance attribute in Local Class  | ).
     out->write( |{ lines( connections ) } connectios have been created| ).
-
   ENDMETHOD.
 ENDCLASS.
 *SALIDA
 *Method call failed
 *Instance 2 failed
-*------------------------------
-*Carrier:     LH
+*--------------------------------
+*Carrier:     LH Deutsche Lufthansa AG
 *Connection:  0400
 *Departure:   FRA
-*Destination: JFK
-*Carrier:     LH Deutsche Lufthansa AG
-*------------------------------
-*Carrier:     SQ
+*Destination:JFK
+*--------------------------------
+*Carrier:     SQ Singapore Airlines Limited
 *Connection:  0001
 *Departure:   SFO
-*Destination: SIN
-*Carrier:     SQ Singapore Airlines Limited
-*CDS View in Constructor Method for validate Instance Creation
-*and public intance and static attribute
+*Destination:SIN
+*Structure use as  private intance attribute in Local Class
 *2 connectios have been created
-
