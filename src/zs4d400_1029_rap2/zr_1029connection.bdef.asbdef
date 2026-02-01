@@ -1,0 +1,56 @@
+managed implementation in class ZBP_R_1029CONNECTION unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_1029CONNECTION alias Zr1029connection
+persistent table Z1029CONNECTION
+extensible
+draft table Z1029CNNECTION_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   CarrierID,
+   ConnectionID;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedAt,
+   LastChangedAt,
+   Changedby;
+
+  field ( readonly : update )
+   CarrierID,
+   ConnectionID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for Z1029CONNECTION corresponding extensible
+  {
+    CarrierID = carrier_id;
+    ConnectionID = connection_id;
+    AirportFromID = airport_from_id;
+    AirportToID = airport_to_id;
+    DepartureTime = departure_time;
+    ArrivalTime = arrival_time;
+    Distance = distance;
+    DistanceUnit = distance_unit;
+    LocalCreatedBy = local_created_by;
+    LocalCreatedAt = local_created_at;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+    Changedby = changedby;
+  }
+
+}

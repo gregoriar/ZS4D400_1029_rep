@@ -40,8 +40,18 @@ CLASS zcl_1029_fill_complex_table IMPLEMENTATION.
     TYPES tt_carriers TYPE STANDARD TABLE OF st_carrier
                           WITH NON-UNIQUE KEY carrier_id.
 
-    DATA: carriers TYPE tt_carriers,
-          carrier  LIKE LINE  OF  carriers.
+    DATA: carriers     TYPE tt_carriers,
+          carrier      LIKE LINE  OF  carriers,
+          carriers2    TYPE table of /dmo/flight,
+          carrier2     TYPE /dmo/flight,
+
+          connections2 TYPE  tt_connections,
+          connections3 TYPE  tt_connections.
+*
+    DATA: connects_flights    TYPE  tt_connections,
+         " connects_flights
+           wa_connect_flight  TYPE  st_connection.
+
 
 
 * Example 1: APPEND with structured data object (work area)
@@ -126,7 +136,121 @@ CLASS zcl_1029_fill_complex_table IMPLEMENTATION.
     out->write(  data = carriers
                  name = `Table CARRRIERS after the LOOP:` ).
 
+* Example 6 Fill the internal table with SELECT
+*****************************************************************
+    out->write(  `----------------------------` ).
+    out->write(  `Example 6: Fill the internal table with SELECT to /DMO/FLIGHT content` ).
+    SELECT FROM  /dmo/flight
+           FIELDS *
+           "WHERE carrier_id eq 'SQ' AND  connection_id eq 0001
+           INTO CORRESPONDING FIELDS OF TABLE @connections2.
 
+    out->write(  `--------------------------------` ).
+    out->write(  `--------------------------------` ).
+    out->write(  data = connections2
+           name = `Table CONNECTIOS2 BEFORE  the LOOP:` ).
+    out->write( |CONNECTINS2 HAVE { lines( connections2 ) } |  ) .
+    out->write(  `--------------------------------` ).
+    out->write(  `--------------------------------` ).
+
+    LOOP AT connections2 INTO DATA(connection2)  .
+
+      IF connection2-carrier_id = 'SQ' AND connection2-connection_id = 001.
+        APPEND VALUE #( carrier_id       = connection2-carrier_id
+                        connection_id    = connection2-connection_id
+
+                       )
+            TO connections3.
+      ENDIF.
+
+
+
+    ENDLOOP.
+      READ TABLE connections3 INTO DATA(connection3) WITH KEY carrier_id = 'SQ'
+                                                       connection_id = 0012.
+      IF sy-subrc eq 0.
+*      out->writ
+      endif.
+    out->write(  `--------------------------------` ).
+    out->write(  `--------------------------------` ).
+    out->write(  data = connections3
+           name = `Table CONNECTIOS3 AFTER the LOOP:` ).
+
+    out->write( |CONNECTINS3 HAVE { lines( connections3 ) } |  ) .
+
+* Example 7 Fill the internal table with SELECT and read
+*With READ TABLE WITHOUT KEYS
+*****************************************************************
+    out->write(  `----------------------------` ).
+    out->write(  `Example 7: Fill the internal table with SELECT to /DMO/FLIGHT content` ).
+    out->write(  `and READ TABLE i_table  INTON wa_structur WITH KEY campo = VALOR` ).
+    SELECT  FROM  /dmo/flight
+
+           FIELDS *
+           "WHERE carrier_id eq 'SQ' AND  connection_id eq 0001
+           INTO CORRESPONDING FIELDS OF table  @connects_flights.
+
+    IF sy-subrc = 0.
+*     READ TABLE connects_flights INTO wa_connect_flight index 6.
+      READ TABLE connects_flights into wa_connect_flight WITH KEY carrier_id = 'SQ' connection_id = 0012.
+      out->write( |POSITION OF ELEMENT IS: { sy-tabix } | ).
+
+*Para buscar la posicion de un elemento en la tabla con READ TABLE QUE CUMPLA LAS CONDICIONES
+      DATA(lv_index) = line_index( connects_flights[ carrier_id = 'SQ'  ] ). " [ carrier_id = 'SQ'  connection_id = 0012 ] ).
+
+      DATA(lv_index2) = line_index( connects_flights[ carrier_id = 'SQ' connection_id = 0012 ] ). " [ carrier_id = 'SQ'  connection_id = 0012 ] ).
+
+    ENDIF.
+
+* Example 8 Fill the internal table /dmo/airport with SELECT and after
+* read in LOOP AT  it_table INTO  wa_area WHERE Condition
+* read the last row with READ TABLE statement.
+*With READ TABLE WITHOUT KEYS
+*****************************************************************
+ DATA: it_airport TYPE table of /dmo/airport,
+       st_airport TYPE /dmo/airport.
+    out->write(  `----------------------------` ).
+    out->write(  `Example 8 Fill the internal table /dmo/airport with SELECT and after ` ).
+    out->write(  `read in LOOP AT  it_table INTO  wa_area WHERE Condition` ).
+
+   SELECT from /dmo/airport
+          FIELDS *
+        "  WHERE country eq 'DE'
+          into table @it_airport.
+
+*    LOOP AT it_airport INTO st_airport where country EQ 'FR' AND name = 'Charles de Gaulle Airport'.
+*      EXIT.
+*    ENDLOOP.
+
+*This LOOP AT is done for posicioning on last row of the it_airport and
+* the structure st_airport will contain this one data
+   LOOP AT it_airport INTO st_airport.  "where country EQ 'FR' AND name = 'Charles de Gaulle Airport'.
+      " EXIT.
+    ENDLOOP.
+
+    out->write( | Exmaple 8 READ TABLE to last record simulation | ).
+    out->write(  data = st_airport
+           name = `Structure ST_AIRPORT AFTER the LOOP:` ).
+
+    out->write( | Internal table IT_AIRPORT HAS   {  lines( it_airport ) } rows | ).
+
+*Thes READ TABLE senctence will do that structure st_airport containt the last row data
+*of internal table it_airport
+
+     READ TABLE it_airport into st_airport index ( lines( it_airport  ) ) .
+
+    out->write( data = st_airport
+                name = 'Structure ST_AIRPORT with last row' ).
 
   ENDMETHOD.
 ENDCLASS.
+*SALIDA
+*----------------------------
+*Example 8 Fill the internal table /dmo/airport with SELECT and after
+*read in LOOP AT  it_table INTO  wa_area WHERE Condition
+* Exmaple 8 READ TABLE to last record simulation
+*Structure ST_AIRPORT AFTER the LOOP:
+*CLIENT  AIRPORT_ID  NAME                       CITY   COUNTRY
+*100     CDG         Charles de Gaulle Airport  Paris  FR
+*
+

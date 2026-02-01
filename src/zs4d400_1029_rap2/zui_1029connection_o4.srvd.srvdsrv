@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_1029CONNECTION'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_1029CONNECTION'
+  }
+}
+define service ZUI_1029CONNECTION_O4 provider contracts odata_v4_ui {
+  expose ZC_1029CONNECTION;
+}
