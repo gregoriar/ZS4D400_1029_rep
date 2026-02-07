@@ -3,7 +3,7 @@
 @ObjectModel.sapObjectNodeType.name: 'ZBOFLIGHT'
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZR_1029FLIGHT
-  as select from Z1029FLIGHT
+  as select from z1029flight
 {
   key carrier_id as CarrierID,
   key connection_id as ConnectionID,

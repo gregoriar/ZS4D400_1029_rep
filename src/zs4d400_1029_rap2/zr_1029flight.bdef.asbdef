@@ -54,5 +54,6 @@ authorization master( global )
     LastChangedAt = last_changed_at;
     Changedby = changedby;
   }
-
+     validation checkSemanticKey
+         on save { create; update; }
 }
