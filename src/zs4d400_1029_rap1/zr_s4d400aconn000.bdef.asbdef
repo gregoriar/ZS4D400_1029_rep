@@ -32,7 +32,6 @@ authorization master( global )
   draft action Resume;
   draft determine action Prepare;
 
-  validation CheckSemanticKey  on save { create; update; }
 
   mapping for ZS4D400ACONN corresponding extensible
   {
@@ -51,5 +50,7 @@ authorization master( global )
     LocalLastChangedAt = local_last_changed_at;
     LastChangedAt = last_changed_at;
   }
+
+  validation CheckSemanticKey  on save { create; update; }
 
 }

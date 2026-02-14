@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_eml IMPLEMENTATION.
+CLASS ZCL_1029_EML IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
 *Declare an internal table with the correct derived type for an EML update of
@@ -40,5 +42,4 @@ CLASS zcl_1029_eml IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.

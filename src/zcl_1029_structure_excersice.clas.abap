@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_structure_excersice IMPLEMENTATION.
+CLASS ZCL_1029_STRUCTURE_EXCERSICE IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -80,18 +80,3 @@ CLASS zcl_1029_structure_excersice IMPLEMENTATION.
     out->write( |{ lines( connections ) } connectios have been created| ).
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*Method call failed
-*Instance 2 failed
-*--------------------------------
-*Carrier:     LH Deutsche Lufthansa AG
-*Connection:  0400
-*Departure:   FRA
-*Destination:JFK
-*--------------------------------
-*Carrier:     SQ Singapore Airlines Limited
-*Connection:  0001
-*Departure:   SFO
-*Destination:SIN
-*Structure use as  private intance attribute in Local Class
-*2 connectios have been created

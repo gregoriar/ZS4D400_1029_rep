@@ -10,7 +10,9 @@ CLASS zcl_1029_copydataflight DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_1029_copydataflight IMPLEMENTATION.
+
+CLASS ZCL_1029_COPYDATAFLIGHT IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -63,8 +65,4 @@ CLASS zcl_1029_copydataflight IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
-
 ENDCLASS.
-*SALIDA
-*Have been added 40 rows in internal table it_z1029flight
-* 40  Rows have been added in table z1029flight

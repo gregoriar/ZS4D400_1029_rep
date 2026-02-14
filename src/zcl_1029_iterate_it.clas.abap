@@ -12,8 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_iterate_it IMPLEMENTATION.
-
+CLASS ZCL_1029_ITERATE_IT IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -89,50 +88,3 @@ CLASS zcl_1029_iterate_it IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*EJEMPLO CON TABLA INTERNA DE TIPO STRING
-*The first 20 Fibonacci Numbers
-*1   :          0
-*2   :          1
-*3   :          1
-*4   :          2
-*5   :          3
-*6   :          5
-*7   :          8
-*8   :         13
-*9   :         21
-*10  :         34
-*11  :         55
-*12  :         89
-*13  :        144
-*14  :        233
-*15  :        377
-*16  :        610
-*17  :        987
-*18  :       1597
-*19  :       2584
-*20  :       4181
-*
-*EJEMPLO CON TABLA INTERNA DE TIPO string_table
-*The first 20 Fibonacci Numbers
-*1   :          0
-*2   :          1
-*3   :          1
-*4   :          2
-*5   :          3
-*6   :          5
-*7   :          8
-*8   :         13
-*9   :         21
-*10  :         34
-*11  :         55
-*12  :         89
-*13  :        144
-*14  :        233
-*15  :        377
-*16  :        610
-*17  :        987
-*18  :       1597
-*19  :       2584
-*20  :       4181
-

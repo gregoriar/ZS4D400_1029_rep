@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_exception_handling IMPLEMENTATION.
+CLASS ZCL_1029_EXCEPTION_HANDLING IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

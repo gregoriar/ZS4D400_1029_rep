@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_copy_connection IMPLEMENTATION.
+CLASS ZCL_1029_COPY_CONNECTION IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

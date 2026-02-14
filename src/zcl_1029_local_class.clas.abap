@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_local_class IMPLEMENTATION.
+CLASS ZCL_1029_LOCAL_CLASS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -77,14 +77,3 @@ CLASS zcl_1029_local_class IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*------------------------------
-*Carrier:     LH
-*Connection:  0400
-*------------------------------
-*Carrier:     AA
-*Connection:  0017
-*------------------------------
-*Carrier:     SQ
-*Connection:  0001
-*3 connectios have been created

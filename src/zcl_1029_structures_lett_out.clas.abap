@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_structures_lett_out IMPLEMENTATION.
+CLASS ZCL_1029_STRUCTURES_LETT_OUT IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

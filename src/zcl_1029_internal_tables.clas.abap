@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_internal_tables IMPLEMENTATION.
+CLASS ZCL_1029_INTERNAL_TABLES IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -98,31 +98,3 @@ CLASS zcl_1029_internal_tables IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*-----------------
-*Example 1: APPEND
-*-----------------
-*4711
-*1234
-*2468
-*----------------
-*Example 2: CLEAR
-*----------------
-*---------------------------
-*Example 3: Table Expression
-*---------------------------
-*Content of row 2: 1234
-*Content of row 1: 4711
-*---------------------------
-*Example 4: LOOP ... ENDLOOP
-*---------------------------
-*Row: 1 Content 4711
-*Row: 2 Content 1234
-*Row: 3 Content 2468
-*-----------------------------
-*Example 5: Inline Declaration
-*-----------------------------
-*Row: 1 Content 4711
-*Row: 2 Content 1234
-*Row: 3 Content 2468
-

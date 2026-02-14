@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_1029FLIGHT2'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_1029FLIGHT2'
+  }
+}
+define service ZUI_BO1029FLIGHT2_O4 provider contracts odata_v4_ui {
+  expose ZC_1029FLIGHT2;
+}

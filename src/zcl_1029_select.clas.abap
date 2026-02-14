@@ -78,18 +78,3 @@ CLASS ZCL_1029_SELECT IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*Method call failed
-*------------------------------
-*Carrier:     LH
-*Connection:  0400
-*Departure:   FRA
-*Destination: JFK
-*------------------------------
-*Carrier:     SQ
-*Connection:  0001
-*Departure:   SFO
-*Destination: SIN
-*2 connectios have been created
-
-

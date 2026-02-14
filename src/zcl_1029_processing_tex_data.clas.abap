@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_processing_tex_data IMPLEMENTATION.
+CLASS ZCL_1029_PROCESSING_TEX_DATA IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
 * Declarations
@@ -68,11 +70,4 @@ CLASS zcl_1029_processing_tex_data IMPLEMENTATION.
     out->write( | Format ISO Date TEXT3: { text3 } |  ).
     out->write( | Format USER Date TEXT4: { text4 } |  ).
   ENDMETHOD.
-
 ENDCLASS.
-
-*SALIDA
-* ORIGINAL TEXT: Hello World
-* Original Date TEXT2: Raw Date: 19891109
-* Format ISO Date TEXT3: ISO Date: 1989-11-09
-* Format USER Date TEXT4: USER Date:11/09/1989

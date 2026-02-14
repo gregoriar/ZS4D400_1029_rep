@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_processing_num_data IMPLEMENTATION.
+CLASS ZCL_1029_PROCESSING_NUM_DATA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_iterations IMPLEMENTATION.
+CLASS ZCL_1029_ITERATIONS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -63,19 +63,3 @@ CLASS zcl_1029_iterations IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*----------------------------------
-*Example 1: DO ... ENDDO with TIMES
-*----------------------------------
-*Hello World
-*Hello World
-*Hello World
-*-------------------------------
-*Example 2: With Abort Condition
-*-------------------------------
-*1: Value of number: 9
-*2: Value of number: 8
-*3: Value of number: 7
-*4: Value of number: 6
-*5: Value of number: 5
-*6: Value of number: 4

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_func_method IMPLEMENTATION.
+CLASS ZCL_1029_FUNC_METHOD IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -99,9 +99,3 @@ CLASS zcl_1029_func_method IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*Second Method call failed
-*------------------------------
-*Carrier:     LH
-*Connection:  0400
-*Total Stored Conections: 1

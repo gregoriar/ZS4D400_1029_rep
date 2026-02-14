@@ -11,7 +11,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_structures_corres IMPLEMENTATION.
+CLASS ZCL_1029_STRUCTURES_CORRES IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
 
 
@@ -92,5 +94,4 @@ CLASS zcl_1029_structures_corres IMPLEMENTATION.
 
 
   ENDMETHOD.
-
 ENDCLASS.

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_cds IMPLEMENTATION.
+CLASS ZCL_1029_CDS IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -82,22 +82,3 @@ CLASS zcl_1029_cds IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*Method call failed
-*Instance 2 failed
-*------------------------------
-*Carrier:     LH
-*Connection:  0400
-*Departure:   FRA
-*Destination: JFK
-*Carrier:     LH Deutsche Lufthansa AG
-*------------------------------
-*Carrier:     SQ
-*Connection:  0001
-*Departure:   SFO
-*Destination: SIN
-*Carrier:     SQ Singapore Airlines Limited
-*CDS View in Constructor Method for validate Instance Creation
-*and public intance and static attribute
-*2 connectios have been created
-

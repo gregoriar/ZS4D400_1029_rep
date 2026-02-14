@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_fill_complex_table IMPLEMENTATION.
+CLASS ZCL_1029_FILL_COMPLEX_TABLE IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -244,13 +244,3 @@ CLASS zcl_1029_fill_complex_table IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*----------------------------
-*Example 8 Fill the internal table /dmo/airport with SELECT and after
-*read in LOOP AT  it_table INTO  wa_area WHERE Condition
-* Exmaple 8 READ TABLE to last record simulation
-*Structure ST_AIRPORT AFTER the LOOP:
-*CLIENT  AIRPORT_ID  NAME                       CITY   COUNTRY
-*100     CDG         Charles de Gaulle Airport  Paris  FR
-*
-

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_compute IMPLEMENTATION.
+CLASS ZCL_1029_COMPUTE IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -47,12 +47,3 @@ CLASS zcl_1029_compute IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*Valor con
-* DATA result TYPE p LENGTH 8 DECIMALS 2.
-*-8 / 3 = -2.67
-* result = number1 / number2.
-*
-*Valor con
-* DATA(result) = number1 / number2.
-*-8 / 3 = -3

@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_complex_table_types IMPLEMENTATION.
+CLASS ZCL_1029_COMPLEX_TABLE_TYPES IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

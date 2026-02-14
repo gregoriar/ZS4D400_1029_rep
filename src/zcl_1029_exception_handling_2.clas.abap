@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_exception_handling_2 IMPLEMENTATION.
+CLASS ZCL_1029_EXCEPTION_HANDLING_2 IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -51,9 +51,3 @@ CLASS zcl_1029_exception_handling_2 IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*i_carrier_id    = 'LH'
-*i_connection_id = '0400'
-*PARAMETER i_carrier_id: LH
-*PARAMETER i_connection_i: 0 ajusted for raise exception !
-*Method call failed

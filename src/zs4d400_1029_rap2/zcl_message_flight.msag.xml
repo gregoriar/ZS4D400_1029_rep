@@ -12,7 +12,7 @@
      <SPRSL>E</SPRSL>
      <ARBGB>ZCL_MESSAGE_FLIGHT</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>Flight number &amp;1 &amp;2 already exist</TEXT>
+     <TEXT>Flight  number Nº  &amp;1 &amp;2 already exist</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>

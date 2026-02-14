@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_1029_internal_table_in_sql IMPLEMENTATION.
+CLASS ZCL_1029_INTERNAL_TABLE_IN_SQL IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.
@@ -122,38 +122,3 @@ CLASS zcl_1029_internal_table_in_sql IMPLEMENTATION.
 
   ENDMETHOD.
 ENDCLASS.
-*SALIDA
-*-------------------------------------
-*Example 1: SELECT SINGLE ... INTO ...
-*One of the airports in Zurich (Structure):
-*AIRPORTID  NAME            CITY    COUNTRYCODE
-*ZRH        Zürich Airport  Zurich  CH
-*------------------------------------
-*Example 2: SELECT ... INTO TABLE ...
-*All airports in London (Internal Table):
-*AIRPORTID  NAME                 CITY    COUNTRYCODE
-*LCY        London City Airport  London  GB
-*LGW        Gatwick Airport      London  GB
-*LHR        Heathrow Airport     London  GB
-*----------------------------------------------------------
-*Example 3: FIELDS * and INTO CORRESPONDING FIELDS OF TABLE
-*Internal Table AIRPORTS:
-*AIRPORTID  NAME
-*LCY        London City Airport
-*LGW        Gatwick Airport
-*LHR        Heathrow Airport
-*----------------------------------------------------------
-*Example 4: Inline Declaration after INTO TABLE
-*Internal Table AIRPORTS_INLINE:
-*AIRPORTID  AIRPORTNAME
-*LCY        London City Airport
-*LGW        Gatwick Airport
-*LHR        Heathrow Airport
-*----------------------------------------------
-*Example 5: UNION ALL of Airlines and Airports
-*ID and Name of Airlines and Airports:
-*TYPE     ID   NAME
-*Airline  BA   British Airways p.l.c.
-*Airport  LCY  London City Airport
-*Airport  LGW  Gatwick Airport
-*Airport  LHR  Heathrow Airport
