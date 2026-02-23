@@ -7,10 +7,11 @@ define behavior for ZC_1029FLIGHT2 alias Zc1029flight2
 extensible
 use etag
 {
-  use create;
+//  use create;
   use update;
-  use delete;
+//  use delete;
 
+ field ( readonly ) PlaneTypeID;
   use action Edit;
   use action Activate;
   use action Discard;

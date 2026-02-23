@@ -1,0 +1,5 @@
+@EndUserText.label: 'SD Z1029FLIGHT2 Only UPDATE operation'
+define service ZUI_BO1029FLIGHT2_O42
+  provider contracts odata_v4_ui {
+  expose ZC_1029FLIGHT2;
+}

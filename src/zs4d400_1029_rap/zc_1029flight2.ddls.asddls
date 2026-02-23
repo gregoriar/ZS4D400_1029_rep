@@ -1,30 +1,36 @@
 @Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@Endusertext: {
-  Label: '###GENERATED Core Data Service Entity'
+@Search.searchable: true
+@EndUserText: {
+  label: '###GENERATED Core Data Service Entity'
 }
-@Objectmodel: {
-  Sapobjectnodetype.Name: 'ZBO1029FLIGHT2'
+@ObjectModel: {
+  sapObjectNodeType.name: 'ZBO1029FLIGHT2'
 }
 @AccessControl.authorizationCheck: #MANDATORY
 define root view entity ZC_1029FLIGHT2
-  provider contract TRANSACTIONAL_QUERY
+  provider contract transactional_query
   as projection on ZR_1029FLIGHT2
-  association [1..1] to ZR_1029FLIGHT2 as _BaseEntity on $projection.UUID = _BaseEntity.UUID and $projection.CARRIERID = _BaseEntity.CARRIERID and $projection.CONNECTIONID = _BaseEntity.CONNECTIONID and $projection.FLIGHTDATE = _BaseEntity.FLIGHTDATE
+  association [1..1] to ZR_1029FLIGHT2 as _BaseEntity on $projection.UUID = _BaseEntity.UUID and $projection.CarrierID = _BaseEntity.CarrierID and $projection.ConnectionID = _BaseEntity.ConnectionID and $projection.FlightDate = _BaseEntity.FlightDate
 {
   key UUID,
+
+@Search.defaultSearchElement: true
+@Search.fuzzinessThreshold: 0.8
+@Search.ranking: #MEDIUM
+@ObjectModel.text.element: [ 'CarrierID' ]
   key CarrierID,
   key ConnectionID,
   key FlightDate,
   @Semantics: {
-    Amount.Currencycode: 'CurrencyCode'
+    amount.currencyCode: 'CurrencyCode'
   }
   Price,
   @Consumption: {
-    Valuehelpdefinition: [ {
-      Entity.Element: 'Currency', 
-      Entity.Name: 'I_CurrencyStdVH', 
-      Useforvalidation: true
+    valueHelpDefinition: [ {
+      entity.element: 'Currency', 
+      entity.name: 'I_CurrencyStdVH', 
+      useForValidation: true
     } ]
   }
   CurrencyCode,
@@ -32,23 +38,23 @@ define root view entity ZC_1029FLIGHT2
   SeatsMax,
   SeatsOccupied,
   @Semantics: {
-    User.Createdby: true
+    user.createdBy: true
   }
   LocalCreatedBy,
   @Semantics: {
-    Systemdatetime.Createdat: true
+    systemDateTime.createdAt: true
   }
   LocalCreatedAt,
   @Semantics: {
-    User.Localinstancelastchangedby: true
+    user.localInstanceLastChangedBy: true
   }
   LocalLastChangedBy,
   @Semantics: {
-    Systemdatetime.Localinstancelastchangedat: true
+    systemDateTime.localInstanceLastChangedAt: true
   }
   LocalLastChangedAt,
   @Semantics: {
-    Systemdatetime.Lastchangedat: true
+    systemDateTime.lastChangedAt: true
   }
   LastChangedAt,
   _BaseEntity
