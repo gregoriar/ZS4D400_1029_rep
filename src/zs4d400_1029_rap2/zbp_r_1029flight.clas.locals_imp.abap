@@ -15,6 +15,19 @@ CLASS LHC_ZR_1029FLIGHT IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD checkSemanticKey.
+
+DATA read_keys   TYPE TABLE FOR READ IMPORT ZR_1029FLIGHT.
+DATA connections TYPE TABLE FOR READ RESULT ZR_1029FLIGHT.
+
+read_keys = CORRESPONDING #( keys ).
+
+READ ENTITIES OF ZR_1029FLIGHT IN LOCAL MODE
+       ENTITY  Zr1029flight
+       FIELDS ( CarrierID ConnectionID )
+         WITH read_keys
+       RESULT connections.
+
+
   ENDMETHOD.
 
 ENDCLASS.
